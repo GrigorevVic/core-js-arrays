@@ -1,18 +1,16 @@
-const nums = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-
-/*   sortDigitNamesByNumericOrder([]) => []
-*   sortDigitNamesByNumericOrder([ 'nine','one' ]) => [ 'one', 'nine' ]
-*   sortDigitNamesByNumericOrder([ 'one','two','three' ]) => [ 'one','two', 'three' ]
-*   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
-*   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
+/*   swapHeadAndTail([ 1, 2 ]) => [ 2, 1 ]
+*   swapHeadAndTail([ 1, 2, 3, 4, 5, 6, 7, 8 ]) =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
+*   swapHeadAndTail([ 1 ]) => [ 1 ]
+*   swapHeadAndTail([]) => []
+*
 */
-function sortDigitNamesByNumericOrder(arr) {
-
-    arr.sort((a, b) => nums.indexOf(a) - nums.indexOf(b));
-      return arr;
+function swapHeadAndTail(arr) {
+    if (arr.length % 2 === 0) {
+        return arr.splice(arr.length / 2).concat(arr);
+    } 
+    const middle = arr.splice(Math.floor(arr.length / 2), 1);
+    return arr.splice(arr.length / 2).concat(middle).concat(arr);
+    
 }
 
-
-
-
-console.log(sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) );
+console.log(swapHeadAndTail([ 1, 2, 3, 4, 5]));
