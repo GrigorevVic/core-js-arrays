@@ -1,16 +1,20 @@
-/*   swapHeadAndTail([ 1, 2 ]) => [ 2, 1 ]
-*   swapHeadAndTail([ 1, 2, 3, 4, 5, 6, 7, 8 ]) =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
-*   swapHeadAndTail([ 1 ]) => [ 1 ]
-*   swapHeadAndTail([]) => []
-*
+
+
+/*   getElementByIndices([[1, 2], [3, 4], [5, 6]], [0,0]) => 1        (arr[0][0])
+*   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
+*   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
 */
-function swapHeadAndTail(arr) {
-    if (arr.length % 2 === 0) {
-        return arr.splice(arr.length / 2).concat(arr);
-    } 
-    const middle = arr.splice(Math.floor(arr.length / 2), 1);
-    return arr.splice(arr.length / 2).concat(middle).concat(arr);
-    
+function getElementByIndices(arr, indices) {
+    const res = indices.reduce((acc, el) => {
+        let a = acc[el];
+        return a;
+    }, arr);
+ return res;
 }
 
-console.log(swapHeadAndTail([ 1, 2, 3, 4, 5]));
+
+
+console.log( getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]))
+
+
+
