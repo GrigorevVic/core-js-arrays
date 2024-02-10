@@ -1,20 +1,23 @@
-
-
-/*   getElementByIndices([[1, 2], [3, 4], [5, 6]], [0,0]) => 1        (arr[0][0])
-*   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
-*   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
+/*     getIdentityMatrix(1)  => [[1]]
+*
+*     getIdentityMatrix(2) => [[1,0],
+*                             [0,1]]
+*
+*                              [[1,0,0,0,0],
+*                              [0,1,0,0,0],
+*     getIdentityMatrix(5) =>  [0,0,1,0,0],
+*                              [0,0,0,1,0],
+*                              [0,0,0,0,1]]
 */
-function getElementByIndices(arr, indices) {
-    const res = indices.reduce((acc, el) => {
-        let a = acc[el];
-        return a;
-    }, arr);
- return res;
-}
+function getIdentityMatrix(n) {
+    let elem = [];
+    const a = new Array(n).fill(0);
+    const b = a.map(() => new Array(n).fill(0));
+    return b.map((el, index) => {
+    elem = el;
+    elem[index] = 1;
+    return elem;
+    });
+  }
 
-
-
-console.log( getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]))
-
-
-
+console.log(getIdentityMatrix(5))
